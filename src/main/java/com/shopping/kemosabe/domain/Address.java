@@ -16,19 +16,19 @@ public class Address {
 	private long addressid;
 	
 	@Column
-	String addressLine1;
+	private String addressLine1;
 	
 	@Column
-	String city;
+	private String city;
 	
 	@Column
-	String state;
+	private String state;
 	
 	@Column
-	String zipcode;
+	private String zipcode;
 	
 	@Column
-	String country;
+	private String country;
 
 	public long getAddressid() {
 		return addressid;

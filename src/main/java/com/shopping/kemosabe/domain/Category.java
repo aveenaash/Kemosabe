@@ -3,12 +3,12 @@ package com.shopping.kemosabe.domain;
 import java.io.Serializable;
 import java.util.Collection;
 
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Category implements Serializable {
@@ -19,8 +19,7 @@ public class Category implements Serializable {
 	private static final long serialVersionUID = 3238703924141722128L;
 
 	@Id
-    @Basic(optional = false)
-    @NotNull
+	@GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "categoryId")
     private Long categoryId;
     
