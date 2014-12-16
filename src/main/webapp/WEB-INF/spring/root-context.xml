@@ -38,12 +38,7 @@
     create: creates the schema, destroying previous data.
     create-drop: drop the schema at the end of the session.
    These options intended to be developers tools and not to facilitate any production level databases -->
-<<<<<<< HEAD
           <prop key="hibernate.hbm2ddl.auto">update</prop>
-=======
-          <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
->>>>>>> eaa11130a2a87490f863a3d895505df09c9aa3fc
-
             <!-- hibernate.dialect. This property makes Hibernate 
                  generate the appropriate SQL for the chosen database. -->
             <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
