@@ -35,7 +35,7 @@
 }
 </style>
 <title>Welcome</title>
-<link rel="stylesheet" type="text/css" href="resources/css/template.css" />
+<link rel="stylesheet" type="text/css" href="/kemosabe/resources/css/template.css" />
 </head>
 <body>
 

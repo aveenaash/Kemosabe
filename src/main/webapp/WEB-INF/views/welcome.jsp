@@ -13,7 +13,7 @@ a:active {
 }
 </style>
 <title>Welcome</title>
-<link rel="stylesheet" href="resources/css/template.css" />
+<link rel="stylesheet" href="/kemosabe/resources/css/template.css" />
 </head>
 <body>
 
@@ -22,8 +22,8 @@ a:active {
 	</div>
 
 	<div id="nav">
-		<a class="navLink" href="">Login</a><br />
-		 <a class="navLink" href="">Sign Up</a><br />
+		<a class="navLink" href="login">Login</a><br />
+		 <a class="navLink" href="signup">Sign Up</a><br />
 	</div>
 
 	<div id="section"></div>
