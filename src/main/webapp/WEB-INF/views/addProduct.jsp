@@ -58,7 +58,7 @@
 					<td><label for="categoryId"><spring:message
 								code="addProduct.form.category.label" /></label></td>
 					<td><form:select path="categoryId">
-							<form:option value="-">Select Category</form:option>
+							<form:option value="0">Select Category</form:option>
 							<form:options items="${categories}" itemValue="categoryId"
 								itemLabel="categoryName" />
 						</form:select>
@@ -67,8 +67,8 @@
 				<tr>
 					<td><label for="productDescription"><spring:message
 								code="addProduct.form.productDescription.label" /></label></td>
-					<td><form:input id="productDescription"
-							path="productDescription" type="text"></form:input> <form:errors
+					<td><form:textarea id="productDescription" rows="4" cols="60"
+							path="productDescription" type="text"></form:textarea> <form:errors
 							path="productDescription" /></td>
 				</tr>
 				<tr>

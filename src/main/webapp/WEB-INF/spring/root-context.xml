@@ -8,9 +8,10 @@
     xsi:schemaLocation="
       http://www.springframework.org/schema/beans 
       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
- 	 
-      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-      http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+      http://www.springframework.org/schema/tx 
+      http://www.springframework.org/schema/tx/spring-tx.xsd
+      http://www.springframework.org/schema/data/jpa 
+      http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
  
  <!-- The jpa:repositories scans for all interfaces that extend JpaRepository and 
       creates implementations for use at runtime.  -->
@@ -36,12 +37,12 @@
     update: update the schema.
     create: creates the schema, destroying previous data.
     create-drop: drop the schema at the end of the session.
-   These options intended to be developers tools and not to facilitate any production level databases 
-            <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
--->
+   These options intended to be developers tools and not to facilitate any production level databases -->
+          <prop key="hibernate.hbm2ddl.auto">update</prop>
+
             <!-- hibernate.dialect. This property makes Hibernate 
                  generate the appropriate SQL for the chosen database. -->
-            <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+            <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
          </props>
       </property>
    </bean>
@@ -56,7 +57,7 @@
     
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-    	<property name="url" value="jdbc:mysql://localhost:3306/kemo"/>
+    	<property name="url" value="jdbc:mysql://localhost:3306/kemosabees"/>
     	<property name="username" value="root"></property>
     	<property name="password" value="root"></property>
     </bean>
