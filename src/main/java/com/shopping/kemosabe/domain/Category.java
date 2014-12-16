@@ -28,7 +28,7 @@ public class Category implements Serializable {
 	@Size(max = 45)
     @Column(name = "categoryName")
     private String categoryName;
-	 
+
 	public Long getCategoryId() {
 		return categoryId;
 	}

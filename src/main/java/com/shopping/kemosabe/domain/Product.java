@@ -29,7 +29,7 @@ public class Product {
 	
 	@Column
 	private long userId; 
-	
+
 	@Column
 	private String productName;
 	
@@ -52,7 +52,6 @@ public class Product {
     private Date productUploadedDate;
 
 	
-
 	public long getUserId() {
 		return userId;
 	}
