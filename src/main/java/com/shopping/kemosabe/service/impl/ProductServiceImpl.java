@@ -2,6 +2,9 @@ package com.shopping.kemosabe.service.impl;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +25,21 @@ public class ProductServiceImpl implements ProductService {
 		productRepository.save(p);
 	}
 
+	@Override
+	public List<Product> getAllProducts() {
+		List<Product> lstOfProducts = new ArrayList<Product>();
+		lstOfProducts = (List<Product>) productRepository.findAll();
 		
+		return lstOfProducts;
+	}
+
+	@Override
+	public List<Product> getUserProducts(long userId) {
+		List<Product> lstOfProducts = new ArrayList<Product>();
+		lstOfProducts = (List<Product>) productRepository.getProductsByUserId(userId);
+		
+		return lstOfProducts;
+	}
 	
+
 }

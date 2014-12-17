@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.shopping.kemosabe.domain.Product;
 import com.shopping.kemosabe.domain.UserRegistration;
 import com.shopping.kemosabe.exceptions.ImageFileNullException;
@@ -104,4 +106,24 @@ public class ProductController {
         modelAndView.setViewName("error");
         return modelAndView;
     }
+
+	@RequestMapping("/allProducts")
+	public ModelAndView allProducts() {
+		ModelAndView modelAndView = new ModelAndView();
+			modelAndView.addObject("products", productService.getAllProducts());
+			modelAndView.setViewName("products");
+
+		return modelAndView;
+	}
+
+	@RequestMapping("/myProducts")
+	public ModelAndView getUserProducts(@RequestParam("userId") long userId) {
+		ModelAndView modelAndView = new ModelAndView();
+			modelAndView.addObject("products", productService.getUserProducts(userId));
+			modelAndView.setViewName("products");
+		return modelAndView;
+	}
+	
+		
+
 }

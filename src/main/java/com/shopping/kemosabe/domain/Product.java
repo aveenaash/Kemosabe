@@ -55,6 +55,15 @@ public class Product {
     private Date productUploadedDate;
 
 	
+	
+	public long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(long productId) {
+		this.productId = productId;
+	}
+
 	public long getUserId() {
 		return userId;
 	}

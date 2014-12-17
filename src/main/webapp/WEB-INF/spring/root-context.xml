@@ -17,7 +17,6 @@
       creates implementations for use at runtime.  -->
  <jpa:repositories base-package="com.shopping.kemosabe" />
  
- 
  <!-- Creates a JPA EntityManagerFactory according to JPA's standard container bootstrap contract.
       This is the most powerful way to set up a shared JPA EntityManagerFactory in a Spring application context;
   -->
@@ -38,7 +37,7 @@
     create: creates the schema, destroying previous data.
     create-drop: drop the schema at the end of the session.
    These options intended to be developers tools and not to facilitate any production level databases -->
-          <prop key="hibernate.hbm2ddl.auto">update</prop>
+           <prop key="hibernate.hbm2ddl.auto">update</prop> 
             <!-- hibernate.dialect. This property makes Hibernate 
                  generate the appropriate SQL for the chosen database. -->
             <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
@@ -46,21 +45,19 @@
       </property>
    </bean>
  
- 
- 
  <!-- database configuration -->
      <!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.h2.Driver"/>
         <property name="url" value="jdbc:http://localhost/spring_test/" />
     </bean> -->
     
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
     	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
     	<property name="url" value="jdbc:mysql://localhost:3306/kemosabees"/>
     	<property name="username" value="root"></property>
-    	<property name="password" value="root"></property>
-    </bean>
+    	<property name="password" value=""></property>
 
+    </bean>
  
    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
       <property name="entityManagerFactory" ref="entityManager" />
@@ -82,4 +79,3 @@
       class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
  
 </beans>
-
