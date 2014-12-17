@@ -22,41 +22,47 @@ a:active {
 	</div>
 
 	<div id="nav">
-		<a class="navLink" href="login">Login</a><br />
-		<a class="navLink" href="signup">Sign Up</a><br />
+		<c:choose>
+			<c:when test="${empty loggedUser}">
+				<a class="navLink" href="login">Login</a> <br />
+				<a class="navLink" href="signup">Sign Up</a> <br />
+			</c:when>
+		</c:choose>
+		
+		<a class="navLink"></a>
 	</div>
 
 	<div id="section">
 		<div id="container">
 			<table>
 				<c:forEach items="${products}" var="product" varStatus="status">
-						<c:choose>
-						
-							<c:when test="${((status.index) % 2) eq 0 }">
-								<tr id="prod" style="background-color: lightblue;">
-							</c:when>
-							<c:otherwise>
-								<tr id="prod" style="background-color: lightblue;">
-							</c:otherwise>
-						</c:choose>
-							<td style="width: 400px;" ><img
-								src="<c:out value="${product.productImage}"/>" alt="image" /></td>
-							<td style="width: 400px; background-color: lightred;">
-								<h3>${product.productName}</h3>
-								<p>${product.productDescription}</p>
-								<p>${product.productPrice}USD</p>
-								<p>${product.productUploadedDate}</p>
-								<p>
-									<c:if test="${product.productAvailability == 1}">
+					<c:choose>
+
+						<c:when test="${((status.index) % 2) eq 0 }">
+							<tr id="prod" style="background-color: lightblue;">
+						</c:when>
+						<c:otherwise>
+							<tr id="prod" style="background-color: lightblue;">
+						</c:otherwise>
+					</c:choose>
+					<td style="width: 400px;"><img
+						src="<c:out value="${product.productImage}"/>" alt="image" /></td>
+					<td style="width: 400px; background-color: lightred;">
+						<h3>${product.productName}</h3>
+						<p>${product.productDescription}</p>
+						<p>${product.productPrice}USD</p>
+						<p>${product.productUploadedDate}</p>
+						<p>
+							<c:if test="${product.productAvailability == 1}">
 									Available for Sale
 									</c:if>
-									<c:if test="${product.productAvailability == 0}">
+							<c:if test="${product.productAvailability == 0}">
 									Sold
 									</c:if>
-								</p>
-								<a href="<c:url value='/user/products/buy?productId=${product.productId}'/>">Buy</a>
-							</td>
-						</tr>
+						</p> <a
+						href="<c:url value='/user/products/buy?productId=${product.productId}'/>">Buy</a>
+					</td>
+					</tr>
 				</c:forEach>
 			</table>
 		</div>
