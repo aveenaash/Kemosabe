@@ -100,9 +100,11 @@ public class LoginController {
 		userRegistrationService.save(uR);
 		userInfoService.save(userInfo);
 		
+		String rootDirectory = req.getSession().getServletContext().getRealPath("/");
+		
 		if (signup.getFile() != null){
 			try {
-				signup.getFile().transferTo(new File(System.getProperty("user.home") + "/" + signup.getUsername() + ".jpg"));
+				signup.getFile().transferTo(new File(rootDirectory + "\\resources\\Images\\" + signup.getUsername() + ".jpg"));
 			} catch (Exception e){
 				throw new ImageUploadFailedException();
 			}

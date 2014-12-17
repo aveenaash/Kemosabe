@@ -58,8 +58,8 @@
 	</div>
 
 	<div id="nav">
-		<a href="<c:url value='user/products/add'/>">Add New Product</a><br />
-		<a href="<c:url value='user/products/add'/>">Your Products</a><br />
+		<a href="<c:url value='/user/products/add'/>">Add New Product</a><br />
+		<a href="<c:url value='/user/products/myProducts'/>">Your Products</a><br />
 		<a href="">Products Bought</a><br />
 	</div>
 	

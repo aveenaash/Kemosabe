@@ -53,9 +53,10 @@ public class ProductServiceImpl implements ProductService {
 		for (Product product :  productList) {
 			if (product.getProductAvailability() == 1){
 				if (product.getProductDescription().toLowerCase().contains(KeywordInLower) || 
-						product.getProductDescription().toLowerCase().contains(KeywordInLower)){
+						product.getProductDescription().toLowerCase().contains(KeywordInLower) ||
+						KeywordInLower.equals("a{{")){
 					returnProductList.add(product);
-				}
+				} 
 			}
 		}
 		return returnProductList;

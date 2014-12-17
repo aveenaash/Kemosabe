@@ -60,12 +60,12 @@
 	</mvc:interceptors>
 
 	
-	<!-- <mvc:interceptors>
+	<mvc:interceptors>
 		<beans:bean class="com.shopping.kemosabe.interceptor.LoginInterceptor" />
 		<mvc:interceptor>
 			<mvc:mapping path="/user" />
 			<beans:bean class="com.shopping.kemosabe.interceptor.LoginInterceptor" />
 		</mvc:interceptor>
-	</mvc:interceptors> -->
+	</mvc:interceptors> 
 
 </beans:beans>

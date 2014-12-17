@@ -62,7 +62,7 @@ public class ProductController {
 		newProduct.setProductUploadedDate(new java.sql.Date((new Date()).getTime()));
 		MultipartFile productImage = newProduct.getProductImg();
 		
-		if (productImage != null && !productImage.isEmpty()) {
+		/*if (productImage != null && !productImage.isEmpty()) {
 			try {
 				productImage.transferTo(new File("/home/abinash/Desktop/tuesday/productImages/"+newProduct.getProductName()+".jpg"));
 			} catch (Exception e) {
@@ -72,7 +72,8 @@ public class ProductController {
 		else
 		{
 			throw new ImageFileNullException();
-		}
+		}*/
+		
 		UserRegistration u= ((UserRegistration)((ModelMap) model).get("loggedUser"));
 		newProduct.setUserId(u.getUserid());
 		newProduct.setProductImage("/home/abinash/Desktop/tuesday/productImages/"+newProduct.getProductName()+".jpg");
