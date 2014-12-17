@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -20,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.shopping.kemosabe.domain.Product;
+import com.shopping.kemosabe.domain.Transaction;
 import com.shopping.kemosabe.domain.UserRegistration;
 import com.shopping.kemosabe.exceptions.ImageFileNullException;
 import com.shopping.kemosabe.exceptions.ImageUploadFailedException;
@@ -41,7 +43,6 @@ public class ProductController {
 		
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String showAddProductForm(@ModelAttribute("newProduct") Product newProduct, Model model) {
-		//System.out.println("sssssssssssssss");
 		model.addAttribute("categories", categoryService.getAllCategories());
 		//System.out.println(((ModelMap)model).get("isLoggedIn"));
 		return "addProduct";
@@ -81,6 +82,29 @@ public class ProductController {
 		
 	}
 	
+	@RequestMapping(value = "/product/{productId}", method = RequestMethod.POST)
+	public String productDetails(@PathVariable("productId") String productId,Model model) {
+		long pId=Long.parseLong(productId);
+		model.addAttribute("product", productService.getProductById(pId));
+		return "productDetail";
+	}
+	
+	@RequestMapping(value = "/buy", method = RequestMethod.POST)
+	public String buyProductTransaction(Model model,HttpServletRequest request) {
+		System.out.println(request.getAttribute("productId"));
+		Transaction transaction=new Transaction();
+		transaction.setProductId(0);
+		transaction.setSellerId(0);
+		transaction.setBuyerId(0);
+		transaction.setBoughtDate(new java.sql.Date((new Date()).getTime()));
+		transaction.setBoughtPrice(0);
+		return "redirect:/user/home";
+	}
+	
+	@RequestMapping(value = "/buy", method = RequestMethod.GET)
+	public String buyProductForm(Model model) {
+		return "productDetail";
+	}
 	
 	@RequestMapping(value = "/forsale", method = RequestMethod.GET)
 	public String showProducts(Model model) {
@@ -117,10 +141,11 @@ public class ProductController {
 	}
 
 	@RequestMapping("/myProducts")
-	public ModelAndView getUserProducts(@RequestParam("userId") long userId) {
+	public ModelAndView getUserProducts(Model model) {
 		ModelAndView modelAndView = new ModelAndView();
-			modelAndView.addObject("products", productService.getUserProducts(userId));
-			modelAndView.setViewName("products");
+		long userId=((UserRegistration)((ModelMap) model).get("loggedUser")).getUserid();
+		modelAndView.addObject("products", productService.getUserProducts(userId));
+		modelAndView.setViewName("products");
 		return modelAndView;
 	}
 	

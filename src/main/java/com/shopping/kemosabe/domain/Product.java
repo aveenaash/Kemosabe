@@ -51,8 +51,7 @@ public class Product {
 	private int productAvailability;
 	
 	@Column
-	@Transient
-    private Date productUploadedDate;
+	private Date productUploadedDate;
 
 	
 	

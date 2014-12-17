@@ -40,7 +40,7 @@ a:active {
 	color: black;
 }
 </style>
-<title>Welcome</title>
+<title>Product Detail</title>
 <link rel="stylesheet" href="/kemosabe/resources/css/template.css" />
 </head>
 <body>
@@ -53,14 +53,20 @@ a:active {
 	</div>
 
 	<div id="nav">
-		<a href="<c:url value='products/add'/>">Add New Product</a><br />
-		<a href="<c:url value='products/myProducts'/>">Your Products</a><br />
+		<a href="<c:url value='user/products/add'/>">Add New Product</a><br />
+		<a href="<c:url value='user/products/add'/>">Your Products</a><br />
 		<a href="">Products Bought</a><br />
 	</div>
 
 	<div id="section">
-	
-	
+		<img/>
+		<h1>Product Detail Name</h1>
+		<p>Description</p>
+		<p>Price</p>
+		<form action="buy" method="post">
+		<input type="hidden" id="productId" value="35" />
+		<input type="submit" id="btnAdd" value="Buy" />
+		</form>
 	</div>
 
 	<div id="footer">Copyright © Kemosabee</div>

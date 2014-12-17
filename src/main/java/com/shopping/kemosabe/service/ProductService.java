@@ -10,6 +10,6 @@ public interface ProductService {
 	
 	public List<Product> getAllProducts();
 	public List<Product> getUserProducts(long userId);
-	
+	public Product getProductById(long productId);
 
 }

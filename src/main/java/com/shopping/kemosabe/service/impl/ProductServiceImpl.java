@@ -37,9 +37,12 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> getUserProducts(long userId) {
 		List<Product> lstOfProducts = new ArrayList<Product>();
 		lstOfProducts = (List<Product>) productRepository.getProductsByUserId(userId);
-		
 		return lstOfProducts;
 	}
 	
+	@Override
+	public Product getProductById(long productId) {
+		return null;
+	}
 
 }
