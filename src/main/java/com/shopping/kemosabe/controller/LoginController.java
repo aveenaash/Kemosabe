@@ -19,7 +19,7 @@ import com.shopping.kemosabe.service.UserInfoService;
 import com.shopping.kemosabe.service.UserRegistrationService;
 
 @Controller
-@SessionAttributes ("isLoggedIn")
+@SessionAttributes({"isLoggedIn","loggedUser"})
 public class LoginController {
 	
 	@Autowired
@@ -35,12 +35,19 @@ public class LoginController {
 	
 	@RequestMapping (value="/login", method=RequestMethod.POST)
 	public String loginHandlerPost (@ModelAttribute("user") @Valid UserRegistration user, BindingResult result, Model model, HttpServletRequest req ) {
+		
 		if (result.hasErrors()){
 			return "login";
 		}
-		
-		req.getSession().setAttribute("isLoggedIn", "true");
-		return "redirect:user/home";
+		if (userRegistrationService.findByUserName(user.getUserName()) != null){
+			if (userRegistrationService.findByUserName(user.getUserName()).getPassword().equals(user.getPassword())) {
+//				req.getSession().setAttribute("isLoggedIn", "true");
+				model.addAttribute("isLoggedIn","true");
+				model.addAttribute("loggedUser",userRegistrationService.findByUserName(user.getUserName()));				
+				return "redirect:user/home";
+			}
+		}
+		return "redirect:login";
 	}
 	
 	@RequestMapping (value="/signup", method=RequestMethod.GET)

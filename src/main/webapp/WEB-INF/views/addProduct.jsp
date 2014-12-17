@@ -48,6 +48,8 @@ a:active {
 
 	<div id="header">
 		<h1>KemoSabe Online Shopping</h1>
+		<br/>
+		<h5>Welcome ${loggedUser.userName}</h5>
 	</div>
 
 	<div id="nav">

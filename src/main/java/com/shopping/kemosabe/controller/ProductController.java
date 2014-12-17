@@ -9,15 +9,18 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shopping.kemosabe.domain.Product;
+import com.shopping.kemosabe.domain.UserRegistration;
 import com.shopping.kemosabe.exceptions.ImageFileNullException;
 import com.shopping.kemosabe.exceptions.ImageUploadFailedException;
 import com.shopping.kemosabe.service.CategoryService;
@@ -25,6 +28,7 @@ import com.shopping.kemosabe.service.ProductService;
 
 @Controller
 @RequestMapping("/products")
+@SessionAttributes({"isLoggedIn","loggedUser"})
 public class ProductController {
 
 	@Autowired
@@ -67,6 +71,8 @@ public class ProductController {
 		{
 			throw new ImageFileNullException();
 		}
+		UserRegistration u= ((UserRegistration)((ModelMap) model).get("loggedUser"));
+		newProduct.setUserId(u.getUserid());
 		newProduct.setProductImage("/home/abinash/Desktop/tuesday/productImages/"+newProduct.getProductName()+".jpg");
 		productService.addProduct(newProduct);		
 		return "home";
