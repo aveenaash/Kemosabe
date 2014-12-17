@@ -1,4 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <%@ page session="false"%>
 <html>
 <head>
@@ -14,8 +17,8 @@ a:active {
 </style>
 <title>Welcome</title>
 <link rel="stylesheet" href="/kemosabe/resources/css/template.css" />
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="<spring:url value='/resources/js/signup.js'/>" > </script>
 
 </head>
 <body>
@@ -30,11 +33,17 @@ a:active {
 	</div>
 
 	<div id="section">
-		    <form:form modelAttribute="signup" method="POST">
+	
+			<br />
+			<button onclick="checkAvailability()">Check Availability</button>
+			<div id="availability"></div> 
+			<br />
+			
+		    <form:form modelAttribute="signup" method="POST" enctype="multipart/form-data">
 			<span style="color: red;"><form:errors path="*" /> <br/></span>
 		
 			<spring:message code="app.signup.username" />
-			<form:input path="username" type="text"/> 
+			<form:input path="username" id="username" type="text"/> 
 			<span style="color: red"><form:errors path="username" /></span>
 			<br />
 			
@@ -76,6 +85,11 @@ a:active {
 			<spring:message code="app.signup.visiblename" />
 			<form:input path="visiblename" type="text"/> 
 			<span style="color: red"><form:errors path="visiblename" /></span>
+			<br />
+			
+			<spring:message code="app.signup.filename" />
+			<form:input path="file" type="file"/> 
+			<span style="color: red"><form:errors path="file" /></span>
 			<br />
 			
 			<input type="submit" value="Signup" />

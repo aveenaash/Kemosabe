@@ -2,6 +2,8 @@ package com.shopping.kemosabe.domain;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.shopping.kemosabe.validator.UserCredentials;
 
 @UserCredentials (username="username", password="password", message="Username already taken")
@@ -29,10 +31,19 @@ public class SignUp {
 	private String country;
 	
 	@Email (message="{app.signup.error.invalidemail}")
+	@NotEmpty (message="{app.signup.error.invalidemail}")
 	private String email;
 	
 	@NotEmpty (message="{app.signup.error.invalidvisiblename}")
 	private String visiblename;
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	private MultipartFile file;
 	
 	public String getEmail() {
 		return email;

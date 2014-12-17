@@ -5,11 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import org.hibernate.validator.constraints.NotEmpty;
-
-import com.shopping.kemosabe.validator.UserCredentials;
-
 
 @Entity (name="userregistration")
 public class UserRegistration {

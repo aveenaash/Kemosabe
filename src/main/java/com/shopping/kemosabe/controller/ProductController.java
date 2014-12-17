@@ -5,7 +5,6 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.shopping.kemosabe.domain.Product;
 import com.shopping.kemosabe.domain.UserRegistration;
 import com.shopping.kemosabe.exceptions.ImageFileNullException;
@@ -27,8 +25,9 @@ import com.shopping.kemosabe.service.CategoryService;
 import com.shopping.kemosabe.service.ProductService;
 
 @Controller
-@RequestMapping("/products")
-@SessionAttributes({"isLoggedIn","loggedUser"})
+@RequestMapping("/user/products")
+@SessionAttributes ({"isLoggedIn", "loggedUser"})
+
 public class ProductController {
 
 	@Autowired
@@ -40,8 +39,9 @@ public class ProductController {
 		
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String showAddProductForm(@ModelAttribute("newProduct") Product newProduct, Model model) {
-		System.out.println("sssssssssssssss");
+		//System.out.println("sssssssssssssss");
 		model.addAttribute("categories", categoryService.getAllCategories());
+		//System.out.println(((ModelMap)model).get("isLoggedIn"));
 		return "addProduct";
 	}
 	
@@ -62,7 +62,6 @@ public class ProductController {
 		if (productImage != null && !productImage.isEmpty()) {
 			try {
 				productImage.transferTo(new File("/home/abinash/Desktop/tuesday/productImages/"+newProduct.getProductName()+".jpg"));
-				
 			} catch (Exception e) {
 				throw new ImageUploadFailedException();
 			}

@@ -53,12 +53,18 @@
 		<beans:property name="validationMessageSource" ref="messageSource" />
 	</beans:bean>
 
-	<!-- <mvc:interceptors>
+	<mvc:interceptors>
+		<beans:bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<beans:property name="paramName" value="language" />
+		</beans:bean>
+	</mvc:interceptors>
+
+	<mvc:interceptors>
 		<beans:bean class="com.shopping.kemosabe.interceptor.LoginInterceptor" />
 		<mvc:interceptor>
 			<mvc:mapping path="/user" />
 			<beans:bean class="com.shopping.kemosabe.interceptor.LoginInterceptor" />
 		</mvc:interceptor>
-	</mvc:interceptors> -->
+	</mvc:interceptors>
 
 </beans:beans>

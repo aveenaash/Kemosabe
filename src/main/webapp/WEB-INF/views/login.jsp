@@ -42,6 +42,10 @@ a:active {
 
 	<div id="section">
 		<div class="center">
+			
+			<c:if test="${invalidCredentials eq 'true'}"> 
+				<span style="color: red;">Invalid Username or password</span>	
+			</c:if>
 			<form:form modelAttribute="user" method="POST">
 				<div id="danger">
 					<form:errors path="*" /> <br/>

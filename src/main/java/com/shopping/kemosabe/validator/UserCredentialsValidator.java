@@ -2,11 +2,8 @@ package com.shopping.kemosabe.validator;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.shopping.kemosabe.domain.SignUp;
-import com.shopping.kemosabe.domain.UserRegistration;
 import com.shopping.kemosabe.service.UserRegistrationService;
 
 public class UserCredentialsValidator implements ConstraintValidator<UserCredentials, SignUp> {
