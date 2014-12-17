@@ -50,7 +50,7 @@
 
 	<beans:bean id="validator"
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-		<beans:property name="validationMessageSource" ref="errorMessageSource" />
+		<beans:property name="validationMessageSource" ref="messageSource" />
 	</beans:bean>
 
 	<mvc:interceptors>
@@ -60,5 +60,5 @@
 			<beans:bean class="com.shopping.kemosabe.interceptor.LoginInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
-
+	
 </beans:beans>

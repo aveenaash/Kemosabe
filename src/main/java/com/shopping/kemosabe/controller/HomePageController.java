@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomePageController {
 	@RequestMapping (value="/user/home", method=RequestMethod.GET)
 	public String userHomeHandler(Model model){
+		System.out.println("");
 		return "home";
 	}
 }

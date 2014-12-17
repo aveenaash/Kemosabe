@@ -23,7 +23,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public void postHandle(
 			HttpServletRequest request, HttpServletResponse response, 
 			Object handler, ModelAndView modelAndView){
-		if (request.getRequestURI().contains("kemosabe/user/")){
+		if (request.getRequestURI().contains("kemosabe/user/home")){
 			System.out.println("reached Here");
 			System.out.println(request.getParameter("isLoggedIn") == null);
 			if (request.getParameter("isLoggedIn") != null) {

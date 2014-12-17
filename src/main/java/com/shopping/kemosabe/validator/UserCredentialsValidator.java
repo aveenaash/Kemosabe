@@ -5,10 +5,11 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.shopping.kemosabe.domain.SignUp;
 import com.shopping.kemosabe.domain.UserRegistration;
 import com.shopping.kemosabe.service.UserRegistrationService;
 
-public class UserCredentialsValidator implements ConstraintValidator<UserCredentials, UserRegistration> {
+public class UserCredentialsValidator implements ConstraintValidator<UserCredentials, SignUp> {
 
 	String userName;
 	String password;
@@ -23,14 +24,14 @@ public class UserCredentialsValidator implements ConstraintValidator<UserCredent
 	}
 
 	@Override
-	public boolean isValid(UserRegistration arg0,
+	public boolean isValid(SignUp arg0,
 			ConstraintValidatorContext arg1) {
-		if (userRegisterService.findByUserName(arg0.getUserName()) != null){
-			if (userRegisterService.findByUserName(arg0.getUserName()).getPassword().equals(arg0.getPassword())) {
-				return true;
-			}
+		if (userRegisterService.findByUserName(arg0.getUsername()) != null){
+			//if (userRegisterService.findByUserName(arg0.getUserName()).getPassword().equals(arg0.getPassword())) {
+				return false;
+			//}
 		}
-		return false;
+		return true;
 	}
 
 }

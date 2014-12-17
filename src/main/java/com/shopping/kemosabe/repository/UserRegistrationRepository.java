@@ -11,6 +11,7 @@ import com.shopping.kemosabe.domain.UserRegistration;
 public interface UserRegistrationRepository extends 
 					CrudRepository<UserRegistration, Long> {
 
-	@Query ("SELECT u FROM USERREGISTER u WHERE USERNAME = :userName")
+	@Query ("SELECT u FROM userregistration u WHERE username = :userName")
 	public UserRegistration findUserByUserName(@Param("userName") String userName);
+	
 }

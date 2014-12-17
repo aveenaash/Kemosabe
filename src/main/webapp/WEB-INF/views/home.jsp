@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@ page session="false"%>
 <html>
 <head>
@@ -16,14 +17,15 @@ a:active {
 <link rel="stylesheet" href="/kemosabe/resources/css/template.css" />
 </head>
 <body>
-
+	
+	<sec:authorize access="hasRole('ROLE_USER')"></sec:authorize>
 	<div id="header">
 		<h1>KemoSabe Online Shopping</h1>
 	</div>
 
 	<div id="nav">
 		<a href="">Edit Profile</a><br />
-		<a href="">Add New Product</a><br />
+		<a href="/kemosabe/user/products/add">Add New Product</a><br/>
 		<a href="">Your Products</a><br />
 		<a href="">Products Bought</a><br />
 	</div>
