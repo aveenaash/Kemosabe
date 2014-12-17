@@ -53,6 +53,9 @@ public class Product {
 	@Column
 	private Date productUploadedDate;
 
+	public String toString(){
+		return "Name: " + this.productName + "; Description: " + this.productDescription;
+	}
 	
 	
 	public long getProductId() {

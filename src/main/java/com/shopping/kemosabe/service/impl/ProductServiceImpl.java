@@ -1,6 +1,6 @@
 package com.shopping.kemosabe.service.impl;
 
-
+import java.util.ArrayList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.shopping.kemosabe.domain.Product;
 import com.shopping.kemosabe.repository.ProductRepository;
+import com.shopping.kemosabe.service.CategoryService;
 import com.shopping.kemosabe.service.ProductService;
 
 @Transactional
@@ -19,6 +20,9 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	ProductRepository productRepository;
+	
+	@Autowired
+	CategoryService categoryService;
 	
 	@Override
 	public void addProduct(Product p) {
@@ -39,10 +43,26 @@ public class ProductServiceImpl implements ProductService {
 		lstOfProducts = (List<Product>) productRepository.getProductsByUserId(userId);
 		return lstOfProducts;
 	}
+
+	@Override	
+	public ArrayList<Product> search(String Keyword) {
+		String KeywordInLower = Keyword.toLowerCase();
+		ArrayList<Product> productList = (ArrayList<Product>)productRepository.findAll();
+		ArrayList<Product> returnProductList = new ArrayList<Product>();
+		
+		for (Product product :  productList) {
+			if (product.getProductAvailability() == 1){
+				if (product.getProductDescription().toLowerCase().contains(KeywordInLower) || 
+						product.getProductDescription().toLowerCase().contains(KeywordInLower)){
+					returnProductList.add(product);
+				}
+			}
+		}
+		return returnProductList;
+	}
 	
 	@Override
 	public Product getProductById(long productId) {
 		return null;
 	}
-
 }

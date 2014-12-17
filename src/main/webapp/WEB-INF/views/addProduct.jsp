@@ -62,8 +62,8 @@ a:active {
 		<form:form modelAttribute="newProduct" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
-					<td><label for="name"><spring:message
-								code="addProduct.form.productName.label" /></label></td>
+					<td><label for="name">
+						<spring:message code="addProduct.form.productName.label" /></label></td>
 					<td><form:input id="productName" path="productName"
 							type="text"></form:input> <form:errors path="productName" /></td>
 				</tr>

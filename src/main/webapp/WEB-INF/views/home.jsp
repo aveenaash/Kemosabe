@@ -44,8 +44,6 @@ a:active {
 <link rel="stylesheet" href="/kemosabe/resources/css/template.css" />
 </head>
 <body>
-	
-	<sec:authorize access="hasRole('ROLE_USER')"></sec:authorize>
 	<div id="header">
 		<h1>KemoSabe Online Shopping</h1>
 		<br/>
