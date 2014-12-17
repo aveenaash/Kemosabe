@@ -6,35 +6,42 @@
 <head>
 <style type="text/css">
 #header {
-	background-color: black;
-	color: white;
-	text-align: center;
-	padding: 5px;
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
 }
-
 #nav {
-	line-height: 30px;
-	background-color: #eeeeee;
-	height: 300px;
-	width: 100px;
-	float: left;
-	padding: 5px;
+	margin-top:20px;
+	margin-bottom:20px;
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:200px;
+    float:left;
+    padding:5px; 
 }
-
 #section {
-	float: left;
-	padding: 10px;
+    float:left;
+    padding:10px; 
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+}
+a {
+	padding: 2px;
+	text-decoration: none;
 }
 
-#footer {
-	background-color: black;
-	color: white;
-	clear: both;
-	text-align: center;
-	padding: 5px;
+a:active {
+	color: black;
 }
 </style>
-<title>Welcome</title>
+<title>Add Product</title>
 <link rel="stylesheet" type="text/css" href="/kemosabe/resources/css/template.css" />
 </head>
 <body>
@@ -43,10 +50,15 @@
 		<h1>KemoSabe Online Shopping</h1>
 	</div>
 
-	<div id="nav"></div>
+	<div id="nav">
+		<a href="">Edit Profile</a><br />
+		<a href="<c:url value='/products/add'/>">Add New Product</a><br />
+		<a href="">Your Products</a><br />
+		<a href="">Products Bought</a><br />
+	</div>
 	<div id="section">
 		<h1>Add Product For Sale</h1>
-		<form:form modelAttribute="newProduct" method="post">
+		<form:form modelAttribute="newProduct" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td><label for="name"><spring:message
@@ -78,10 +90,10 @@
 							type="text"></form:input> <form:errors path="productPrice" /></td>
 				</tr>
 				<tr>
-					<td><label for="productImage"><spring:message
+					<td><label for="productImg"><spring:message
 								code="addProduct.form.productImage.label" /></label></td>
-					<td><form:input id="productImage" path="productImage"
-							type="file" /> <form:errors path="productImage" /></td>
+					<td><form:input id="productImg" path="productImg"
+							type="file" /> <form:errors path="productImg" /></td>
 				</tr>
 				<tr>
 					<td><input type="reset" id="btnReset" value="Reset" /></td>
@@ -89,7 +101,6 @@
 				</tr>
 			</table>
 		</form:form>
-
 	</div>
 
 	<div id="footer">Copyright © Kemosabee</div>

@@ -1,19 +1,17 @@
 package com.shopping.kemosabe.domain;
 
 import java.sql.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 @XmlRootElement 
@@ -25,18 +23,22 @@ public class Product {
 	private long productId;
 	
 	@Column
+	@NotNull(message="Category Id cannot be null")
 	private long categoryId; 
 	
 	@Column
 	private long userId; 
 
 	@Column
+	@NotEmpty(message="Product Name cannot be empty")
 	private String productName;
 	
 	@Column
+	@NotEmpty(message="Product Description cannot be empty")
 	private String productDescription;
 	
 	@Column
+	@NotNull(message="Product Pice cannot be null")
 	private double productPrice;
 	
 	@Column
@@ -46,9 +48,10 @@ public class Product {
 	MultipartFile productImg;
 	
 	@Column
-	private Short productAvailability;
+	private int productAvailability;
 	
 	@Column
+	@Transient
     private Date productUploadedDate;
 
 	
@@ -108,12 +111,12 @@ public class Product {
 		this.productImg = productImg;
 	}
 
-	public Short getProductAvailability() {
+	public int getProductAvailability() {
 		return productAvailability;
 	}
 
-	public void setProductAvailability(Short productAvailability) {
-		this.productAvailability = productAvailability;
+	public void setProductAvailability(int i) {
+		this.productAvailability = i;
 	}
 
 	public Date getProductUploadedDate() {

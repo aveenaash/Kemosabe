@@ -18,6 +18,7 @@ public class UserRegistration {
 	@Column (name="userid")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long userid;
+
 	
 	@Column (name="username")
 	@NotEmpty (message="{kemosabe.login.invalidUserName}")
