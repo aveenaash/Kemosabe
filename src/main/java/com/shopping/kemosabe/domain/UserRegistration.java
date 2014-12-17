@@ -9,16 +9,19 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.shopping.kemosabe.validator.UserCredentials;
 
 
-@Entity (name="USERREGISTER")
+@Entity (name="userregistration")
 @UserCredentials (username="username", password="password")
 public class UserRegistration {
 	
 	@Id
-	@Column (name="USERNAME")
+	@Column(name="userid")
+	private long userId;
+	
+	@Column (name="username")
 	@NotEmpty (message="{kemosabe.login.invalidUserName}")
 	private String userName;
 	
-	@Column (name="PASSWORD")
+	@Column (name="password")
 	@NotEmpty (message="{kemosabe.login.invalidPassword}")	
 	private String password;
 	

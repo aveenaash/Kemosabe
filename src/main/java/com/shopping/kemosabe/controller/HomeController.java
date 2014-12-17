@@ -25,14 +25,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		UserRegistration user = new UserRegistration();
-		user.setPassword("passw0rd");
-		user.setUserName("beannayak");
-		//userRegService.save(user);
-		
-		System.out.println(userRegService.findByUserName(user.getUserName()).getPassword());
 		return "welcome";
-		
 	}
 	
 }

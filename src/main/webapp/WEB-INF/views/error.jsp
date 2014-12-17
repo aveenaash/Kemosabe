@@ -2,34 +2,7 @@
 <%@ page session="false"%>
 <html>
 <head>
-<style type="text/css">
-#header {
-    background-color:black;
-    color:white;
-    text-align:center;
-    padding:5px;
-}
-#nav {
-	margin-top:20px;
-	margin-bottom:20px;
-    line-height:30px;
-    background-color:#eeeeee;
-    height:300px;
-    width:200px;
-    float:left;
-    padding:5px; 
-}
-#section {
-    float:left;
-    padding:10px; 
-}
-#footer {
-    background-color:black;
-    color:white;
-    clear:both;
-    text-align:center;
-    padding:5px; 
-}
+<style>
 a {
 	padding: 2px;
 	text-decoration: none;
@@ -39,7 +12,7 @@ a:active {
 	color: black;
 }
 </style>
-<title>Welcome</title>
+<title>Error</title>
 <link rel="stylesheet" href="/kemosabe/resources/css/template.css" />
 </head>
 <body>
@@ -56,8 +29,8 @@ a:active {
 	</div>
 
 	<div id="section">
-	
-	
+		<h1>${exception.message}</h1>
+		<h3>${url}</h3>
 	</div>
 
 	<div id="footer">Copyright © Kemosabee</div>
