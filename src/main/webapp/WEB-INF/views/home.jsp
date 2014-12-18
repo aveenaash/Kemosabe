@@ -54,7 +54,7 @@ a:active {
 		<a href="<c:url value='/'/>">Welcome</a> <br />
 		<a href="<c:url value='/user/products/add'/>">Add New Product</a><br />
 		<a href="<c:url value='/user/products/myProducts'/>">Your Products</a><br />
-		<a href="">Products Bought</a><br />
+		<a href="<c:url value='/user/products/boughtProducts'/>">Products Bought</a><br />
 		<a href="<c:url value='/user/logout'/>">logout</a><br />
 	</div>
 
@@ -64,9 +64,9 @@ a:active {
 				<c:forEach items="${products}" var="product" varStatus="status">
 		<tr id="prod" style="background-color: lightblue;">
 					
-					<td style="width: 400px; background-color: lightblue;">
-					<img src="${pageContext.request.contextPath}/image/${product.productImage}" alt="image"/></td>
-					<td style="width: 400px; background-color: lightred;">
+					<td style="width: 200px;">
+					<img style="width: 200px; height: 200px;" src="${pageContext.request.contextPath}/image/${product.productImage}" alt="image"/></td>
+					<td style="width: 400px;">
 						<h3>${product.productName}</h3>
 						<p>${product.productDescription}</p>
 						<p>${product.productPrice}USD</p>

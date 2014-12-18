@@ -24,13 +24,8 @@ a:active {
 		<a class="navLink" href="<c:url value='/?language=en' />">English</a>
 		<a class="navLink" href="<c:url value='/?language=fr' />">French</a>
 		<br/>
-			<form action="findProducts" method="post">
-			
+			<form action="findProducts" method="post">			
 				<input type="text" name="search"/>
-				<%-- <form:select path="categoryId">
-					<form:option value="0">Select Category</form:option>
-					<form:options items="${categories}" itemValue="categoryId" itemLabel="categoryName" />
-				</form:select> --%>	
 				<input type="submit" value="Find"/>
 			</form>
 	</div>
@@ -51,18 +46,9 @@ a:active {
 		<div id="container">
 			<table>
 				<c:forEach items="${products}" var="product" varStatus="status">
-					<c:choose>
-
-						<c:when test="${((status.index) % 2) eq 0 }">
-							<tr id="prod" style="background-color: lightblue;">
-						</c:when>
-						<c:otherwise>
-							<tr id="prod" style="background-color: lightblue;">
-						</c:otherwise>
-					</c:choose>
-					<td style="width: 400px;"><img style="width: 200px; height: 200px;"
+					<td style="width: 200px;"><img style="width: 200px; height: 200px;"
 						src="${pageContext.request.contextPath}/image/${product.productImage}" alt="image" /></td>
-					<td style="width: 400px; background-color: lightred;">
+					<td style="width: 400px;">
 						<h3>${product.productName}</h3>
 						<p>${product.productDescription}</p>
 						<p>${product.productPrice}USD</p>

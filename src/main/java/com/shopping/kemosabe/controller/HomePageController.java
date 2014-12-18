@@ -25,14 +25,10 @@ public class HomePageController {
 	@RequestMapping (value="/user/home")
 	public String userHomeHandler(Model model){
 		
-		System.out.println("reached hereraaaaaaaaaaaaaaaaa");
 		UserRegistration user = (UserRegistration) ((ModelMap)model).get("loggedUser");
-		
-		
 		if (user != null) {
 			
 			ArrayList<Product> products = productService.searchByUser("a{{", user.getUserid());
-			System.out.println("User id is: " + user.getUserid());
 			model.addAttribute("products", products);
 			
 			for (Product p : products){

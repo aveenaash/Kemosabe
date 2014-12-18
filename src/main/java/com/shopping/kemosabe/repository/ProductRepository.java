@@ -18,6 +18,7 @@ public interface ProductRepository extends CrudRepository<Product, Long>{
 	//need to return User who put the product for sell ?		
 	public List<Product> getProductsByUserId(long userId);
 	
+	
 	@Modifying
 	@Transactional
 	@Query("UPDATE product set productAvailability = :availability WHERE productId = :productId")

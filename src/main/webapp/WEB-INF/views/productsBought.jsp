@@ -68,23 +68,17 @@
 	<div id="section">
 		<div id="container">
 			<table>
-					<c:forEach items="${products}" var="product">
+					<c:forEach items="${productsBought}" var="product">
 						<tr id="prod">
 								<td style="width:200px;">
 								<img style="width: 200px; height: 200px;" src="${pageContext.request.contextPath}/image/${product.productImage}" alt="image"/>
-								 </td>
+								</td>
 								<td style="width:400px;">
 									<h3>${product.productName}</h3>
 									<p>${product.productDescription}</p>
-									<p>${product.productPrice} USD</p>
-									<p>${product.productUploadedDate}</p>
-									<p><c:if test="${product.productAvailability == 1}">
-									Available for Sale
-									</c:if>
-									<c:if test="${product.productAvailability == 0}">
-									Sold
-									</c:if>
-									</p>							
+									<p>${product.boughtPrice} USD</p>
+									<p>Bought On :${product.boughtDate}</p>
+									<p>Sold By : ${product.sellerUser.visiblename}</p>	 					
 								</td>
 						</tr>
 					</c:forEach>

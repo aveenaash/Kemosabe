@@ -7,7 +7,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class ProductsBought {
 	
-	private Product product; 
+	private String productName; 
+	
+	private String productDescription;
+	
+	private String productImage;
+	 
 	
 	private User sellerUser; 
 	
@@ -17,12 +22,29 @@ public class ProductsBought {
 	
 	private Date boughtDate;
 
-	public Product getProduct() {
-		return product;
+	
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public String getProductDescription() {
+		return productDescription;
+	}
+
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+
+	public String getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(String productImage) {
+		this.productImage = productImage;
 	}
 
 	public User getSellerUser() {

@@ -13,7 +13,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -48,7 +47,6 @@ public class ProductController {
 	public String showAddProductForm(
 			@ModelAttribute("newProduct") Product newProduct, Model model) {
 		model.addAttribute("categories", categoryService.getAllCategories());
-		// System.out.println(((ModelMap)model).get("isLoggedIn"));
 		return "addProduct";
 	}
 
@@ -86,23 +84,9 @@ public class ProductController {
 
 	}
 
-	@RequestMapping(value = "/product/{productId}", method = RequestMethod.POST)
-	public String productDetails(@PathVariable("productId") String productId,
-			Model model) {
-		long pId = Long.parseLong(productId);
-		model.addAttribute("product", productService.getProductById(pId));
-		return "productDetail";
-	}
-
-	@RequestMapping(value = "/buy", method = RequestMethod.POST)
-	public String buyProductTransaction(Model model, HttpServletRequest request) {
-
-		return "redirect:/user/home";
-	}
-
 	@RequestMapping(value = "/buy", method = RequestMethod.GET)
 	public String buyProductForm(@RequestParam("productId") String productId,
-			Model model, HttpServletRequest request) {
+		Model model, HttpServletRequest request) {
 		System.out.println(productId);
 		long id = Long.parseLong(productId);
 		Product p = productService.getProductById(id);
@@ -154,6 +138,22 @@ public class ProductController {
 		return modelAndView;
 	}
 
+	@RequestMapping("/boughtProducts")
+	public ModelAndView allUserBoughtProducts(Model model) {
+		ModelAndView modelAndView = new ModelAndView();
+		UserRegistration buyer = ((UserRegistration) ((ModelMap) model).get("loggedUser")); 
+		if (buyer != null) {
+		long buyerId = buyer.getUserid();
+		modelAndView.addObject("productsBought", transactionService.getTransactionsByBuyers(buyerId));
+		modelAndView.setViewName("productsBought");
+		}
+		else
+		{
+			modelAndView.setViewName("home");
+		}
+		return modelAndView;
+	}
+	
 	@RequestMapping("/myProducts")
 	public ModelAndView getUserProducts(Model model) {
 		ModelAndView modelAndView = new ModelAndView();

@@ -16,7 +16,7 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column (name="userid")
-	private BigInteger id;
+	private long id;
 	
 	@Column
 	private String addressLine1;
@@ -47,11 +47,11 @@ public class User {
 		this.email = email;
 	}
 
-	public BigInteger getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(BigInteger id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
