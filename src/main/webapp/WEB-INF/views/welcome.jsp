@@ -19,6 +19,8 @@ a:active {
 
 	<div id="header">
 		<h1>KemoSabe Online Shopping</h1>
+		<a class="navLink" href="<c:url value='/?language=en' />">English</a>
+		<a class="navLink" href="<c:url value='/?language=fr' />">French</a>
 	</div>
 
 	<div id="nav">
@@ -27,9 +29,10 @@ a:active {
 				<a class="navLink" href="login">Login</a> <br />
 				<a class="navLink" href="signup">Sign Up</a> <br />
 			</c:when>
+			<c:otherwise>
+				<a class="navLink" href="<c:url value='/user/home' />">Home</a> <br />
+			</c:otherwise>
 		</c:choose>
-		
-		<a class="navLink"></a>
 	</div>
 
 	<div id="section">

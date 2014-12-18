@@ -53,9 +53,11 @@ a:active {
 	</div>
 
 	<div id="nav">
+		<a href="<c:url value='/'/>">Welcome</a> <br />
 		<a href="<c:url value='/user/products/add'/>">Add New Product</a><br />
 		<a href="<c:url value='/user/products/myProducts'/>">Your Products</a><br />
 		<a href="">Products Bought</a><br />
+		<a href="<c:url value='/user/logout'/>">logout</a><br />
 	</div>
 	<div id="section">
 		<h1>Add Product For Sale</h1>

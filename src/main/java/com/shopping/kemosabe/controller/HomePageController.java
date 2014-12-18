@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.shopping.kemosabe.service.ProductService;
 
@@ -18,7 +19,13 @@ public class HomePageController {
 	
 	@RequestMapping (value="/user/home")
 	public String userHomeHandler(Model model){
-		model.addAttribute("products", productService.search("a{{"));
+		
 		return "home";
+	}
+	
+	@RequestMapping (value="/user/logout")
+	public String userLogoutHandler(Model model, SessionStatus status){
+		status.setComplete();
+		return "redirect:/";
 	}
 }
