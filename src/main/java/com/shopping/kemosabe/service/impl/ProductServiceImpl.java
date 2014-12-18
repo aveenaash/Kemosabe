@@ -66,7 +66,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product getProductById(long productId) {
-		return null;
+		return productRepository.findOne(productId);
 	}
 
 	@Override
@@ -86,4 +86,11 @@ public class ProductServiceImpl implements ProductService {
 		}
 		return returnProductList;
 	}
+
+	public void updateProductAvailability(long p, int availability) {
+		// TODO Auto-generated method stub
+		productRepository.updateProductAvailability(availability, p);
+	}
+	
+	
 }

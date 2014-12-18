@@ -18,8 +18,7 @@ public class TransactionServiceImpl implements TransactionService {
 	
 	@Override
 	public void addTransaction(Transaction t) {
-		// TODO Auto-generated method stub
-		
+		transactioRepository.save(t);
 	}
 
 	

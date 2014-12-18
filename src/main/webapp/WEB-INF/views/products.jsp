@@ -71,8 +71,8 @@
 					<c:forEach items="${products}" var="product">
 						<tr id="prod">
 								<td style="width:400px;">
-									<img src="<c:out value="${product.productImage}"/>" alt="image"/>
-								</td>								
+								<img style="width: 200px; height: 200px;" src="${pageContext.request.contextPath}/image/${product.productImage}" alt="image"/>
+								</td>
 								<td style="width:400px;">
 									<h3>${product.productName}</h3>
 									<p>${product.productDescription}</p>

@@ -48,8 +48,8 @@ a:active {
 							<tr id="prod" style="background-color: lightblue;">
 						</c:otherwise>
 					</c:choose>
-					<td style="width: 400px;"><img
-						src="<c:out value="${product.productImage}"/>" alt="image" /></td>
+					<td style="width: 400px;"><img style="width: 200px; height: 200px;"
+						src="${pageContext.request.contextPath}/image/${product.productImage}" alt="image" /></td>
 					<td style="width: 400px; background-color: lightred;">
 						<h3>${product.productName}</h3>
 						<p>${product.productDescription}</p>
