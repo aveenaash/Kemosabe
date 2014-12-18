@@ -15,4 +15,5 @@ public interface ProductService {
 	
 	public ArrayList<Product> search(String Keyword);
 	public ArrayList<Product> searchByUser(String Keyword, long userId);
+
 }

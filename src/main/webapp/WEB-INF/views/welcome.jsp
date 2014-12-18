@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page session="false"%>
 <html>
 <head>
@@ -19,8 +20,19 @@ a:active {
 
 	<div id="header">
 		<h1>KemoSabe Online Shopping</h1>
-		<a class="navLink" href="<c:url value='?language=en' />">English</a>
-		<a class="navLink" href="<c:url value='?language=fr' />">French</a>
+
+		<a class="navLink" href="<c:url value='/?language=en' />">English</a>
+		<a class="navLink" href="<c:url value='/?language=fr' />">French</a>
+		<br/>
+			<form action="findProducts" method="post">
+			
+				<input type="text" name="search"/>
+				<%-- <form:select path="categoryId">
+					<form:option value="0">Select Category</form:option>
+					<form:options items="${categories}" itemValue="categoryId" itemLabel="categoryName" />
+				</form:select> --%>	
+				<input type="submit" value="Find"/>
+			</form>
 	</div>
 
 	<div id="nav">

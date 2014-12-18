@@ -92,5 +92,4 @@ public class ProductServiceImpl implements ProductService {
 		productRepository.updateProductAvailability(availability, p);
 	}
 	
-	
 }
