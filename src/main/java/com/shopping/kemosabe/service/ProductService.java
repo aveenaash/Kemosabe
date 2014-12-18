@@ -14,4 +14,5 @@ public interface ProductService {
 	public Product getProductById(long productId);
 
 	public ArrayList<Product> search(String Keyword);
+	public ArrayList<Product> searchByUser(String Keyword, long userId);
 }

@@ -49,7 +49,9 @@ a:active {
 	<div id="header">
 		<h1>KemoSabe Online Shopping</h1>
 		<br/>
-		<h5>Welcome ${loggedUser.userName}</h5>
+		<h5>Welcome ${loggedUser.userName}</h5> <br />
+		<a class="navLink" href="<c:url value='?language=en' />">English</a>
+		<a class="navLink" href="<c:url value='?language=fr' />">French</a>
 	</div>
 
 	<div id="nav">

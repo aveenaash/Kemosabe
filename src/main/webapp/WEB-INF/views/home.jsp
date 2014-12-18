@@ -59,8 +59,32 @@ a:active {
 	</div>
 
 	<div id="section">
-	
-	
+		<div id="container">
+			<table>
+				<c:forEach items="${products}" var="product" varStatus="status">
+		<tr id="prod" style="background-color: lightblue;">
+					
+					<td style="width: 400px; background-color: lightblue;">
+					<img src="<c:out value="${product.productImage}"/>" alt="image" /></td>
+					<td style="width: 400px; background-color: lightred;">
+						<h3>${product.productName}</h3>
+						<p>${product.productDescription}</p>
+						<p>${product.productPrice}USD</p>
+						<p>${product.productUploadedDate}</p>
+						<p>
+							<c:if test="${product.productAvailability == 1}">
+									Available for Sale
+									</c:if>
+							<c:if test="${product.productAvailability == 0}">
+									Sold
+									</c:if>
+						</p> <a
+						href="<c:url value='/user/products/buy?productId=${product.productId}'/>">Buy</a>
+					</td>
+					</tr >
+				</c:forEach>
+			</table>
+		</div>
 	</div>
 
 	<div id="footer">Copyright © Kemosabee</div>

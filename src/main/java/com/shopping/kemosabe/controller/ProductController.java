@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.shopping.kemosabe.domain.Product;
 import com.shopping.kemosabe.domain.Transaction;
@@ -62,7 +62,7 @@ public class ProductController {
 		newProduct.setProductUploadedDate(new java.sql.Date((new Date()).getTime()));
 		MultipartFile productImage = newProduct.getProductImg();
 		
-		/*if (productImage != null && !productImage.isEmpty()) {
+		if (productImage != null && !productImage.isEmpty()) {
 			try {
 				productImage.transferTo(new File("/home/abinash/Desktop/tuesday/productImages/"+newProduct.getProductName()+".jpg"));
 			} catch (Exception e) {
@@ -72,7 +72,7 @@ public class ProductController {
 		else
 		{
 			throw new ImageFileNullException();
-		}*/
+		}
 		
 		UserRegistration u= ((UserRegistration)((ModelMap) model).get("loggedUser"));
 		newProduct.setUserId(u.getUserid());

@@ -19,8 +19,8 @@ a:active {
 
 	<div id="header">
 		<h1>KemoSabe Online Shopping</h1>
-		<a class="navLink" href="<c:url value='/?language=en' />">English</a>
-		<a class="navLink" href="<c:url value='/?language=fr' />">French</a>
+		<a class="navLink" href="<c:url value='?language=en' />">English</a>
+		<a class="navLink" href="<c:url value='?language=fr' />">French</a>
 	</div>
 
 	<div id="nav">
